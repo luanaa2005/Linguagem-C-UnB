@@ -4,4 +4,4 @@ Aprendendo a programar em c
 
 |conteúdo| descricao|link|
 |-|-|-|
-|Struct| aula sobre registros|[Aqui](./conteudos/registro.md)|
+|Struct| aula sobre registros|[Aqui](./Conteudos/registro.md)|
