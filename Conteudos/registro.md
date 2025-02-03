@@ -1,4 +1,5 @@
 O que é um struct? 
+-
 
 Agrupa várias variáveis e de varios tipos em uma única estrutura;
 
@@ -9,6 +10,7 @@ Funciona como um container:
 ▶ Podendo ser de diversos tipos
 
 Formato:
+-
 ```c
 struct nome_da_estrutura{
     tipo1 campo1;
@@ -26,9 +28,10 @@ struct cadastroAluno{
     int idade;
 } alu, alu1, alu2;
 ```
-▶ Declara antes da main
+
 
 Onde declarar?
+-
 ```c
 #include <stdio.h>
 
@@ -45,6 +48,7 @@ int main() {
 }
 ```
 Acesso
+-
 ```c
 // criacao do tipo
 struct cadastroAluno{
@@ -59,6 +63,7 @@ printf("%d\n", alu1.ra);
 printf("%d\n", alu1.idade);
 ```
 Inicializar:
+-
 ```c
 // inicializacao na declaracao
 struct cadastroAluno alu1 = {12345, 18};
@@ -75,6 +80,7 @@ printf("%d %d\n", alu1.ra, alu1.idade);
 printf("%d %d\n", alu2.ra, alu2.idade);
 ```
 Copiar structs:
+-
 ```c
 struct cadastroAluno alu1 = {12345, 18};
 struct cadastroAluno2;
@@ -87,6 +93,7 @@ printf("%d %d\n", alu1.ra, alu1.idade); //12345, 18
 printf("%d %d\n", alu2.ra, alu2.idade); //99999, 18
 ```
 Estruturas aninhadas- registro dentro de registro:
+-
 ```c
 struct data{
     int dia, mes, ano;
@@ -112,6 +119,7 @@ scanf("%d %d %d", &cadastro.nascimento.dia,
                    &cadastro.nascimento.ano);
 ```
 Struct dentro de struct que possui struct:
+-
 
 ```c
 struct data {
@@ -134,6 +142,7 @@ struct matricula {
 };
 ```
 Registro com vetores:
+-
 ```c
 typedef struct cadastroProduto Produto;
 
