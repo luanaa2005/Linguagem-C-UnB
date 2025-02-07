@@ -163,5 +163,28 @@ scanf("%d %f %d/%d/%d", &camiseta.codigo,
 for(int i=0; i<6; i++){
     scanf("%d", &camiseta.tamanho_qtde[i]);
 }
+```
+Outro exemplo:
+```c
+
+struct tipo_pessoa{
+    int idade;
+    float peso;
+    char nome[50];
+};
+
+typedef struct tipo_pessoa tipo_pessoa;
+
+int main(){
+
+    tipo_pessoa lista[3];
+    
+    for(int i=0; i<3; i++){
+        scanf("[^\n]", &lista[i].nome);
+        scanf("%d", &lista[i].idade);
+        scanf("%f", &lista[i].peso);
+
+    }
+}
 
   

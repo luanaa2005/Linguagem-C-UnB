@@ -61,33 +61,10 @@ int main(){
 - Quando usado como um tipo de retorno da função, a palavra-chave void especifica que a função não retorna um valor. Quando usado para a lista de parâmetros de uma função, um item nulo especifica void que a função não usa parâmetros
 - Parâmetros são variáveis locais da função
 
-Parâmetros: passagem por valor ou cópia
--
-- Passagem somente de um valor
-- Cópia do valor original
-- Não altera a variável original que forneceu o valor
-
-Exemplo:
-```c
-void teste (char k){
-    printf("%c\n", k);
-    k = 'a'; //alterando o valor de k
-    printf("%c\n", k); //a
-}
-
-int main(){
-    char k = 'b';
-
-    teste(k); //passando uma copia do valor de k
-    printf("%c\n", k); //b
-
-    return 0;
-}
-```
 Parâmetros: passagem por referência:
 - 
-- Função que troca o valor de dois parâmetros passandoo endereço da variável original
-- As alterações sãofeitas no endereço da variável original
+- Função que troca o valor de dois parâmetros passando o endereço da variável original
+- As alterações são feitas no endereço da variável original
 
 Passagem por referência- ponteiro
 - 
@@ -115,3 +92,82 @@ int main(){
     printf("%d %d\n", a, b);
 }
 ```
+
+Passagem por cópia
+- 
+
+- cópia do valor original 
+- valor que inicializa o parâmetro (variável local) da função
+- não altera a variável original que forneceu o valor
+- variável da função é diferete da variável original
+
+```c
+#include <stdio.h>
+
+void incrementar(int x) {
+    x = x + 1;
+    printf("Dentro da função: %d\n", x);
+}
+
+int main() {
+    int num = 5;
+    incrementar(num); 
+    printf("Fora da função: %d\n", num);
+    return 0;
+    }
+
+//Dentro da função: 6
+//Fora da função: 5
+
+```
+
+
+A variável num na main() não é alterada pela função incrementar(), pois os argumentos são passados por valor em C. Se você quiser modificar num diretamente, teria que passar um ponteiro, ex:
+
+```c
+#include <stdio.h>
+
+void incrementar(int *x) { // Agora recebe um ponteiro
+    (*x) = (*x) + 1;
+    printf("Dentro da função: %d\n", *x);
+}
+
+int main() {
+    int num = 5;
+    incrementar(&num); // Passa o endereço de num
+    printf("Fora da função: %d\n", num);
+    return 0;
+}
+```
+Agora num é modificado diretamente dentro da função.
+
+
+# Passagem por cópia X Passagem por referência
+## Por cópia:
+Quando Usar?
+
+✅ Quando a função não precisa modificar a variável original.
+
+Exemplo: Funções matemáticas que apenas processam dados sem alterá-los.
+
+✅ Quando os dados são pequenos e simples (ex: int, float, char).
+
+Passar valores pequenos por cópia é eficiente.
+
+✅ Quando você quer proteger a variável original contra alterações.
+
+Útil em funções que só devem usar o valor sem alterá-lo.
+## Por referência:
+
+Quando Usar?
+
+✅ Quando a função precisa modificar a variável original.
+
+Exemplo: Atualizar um contador, modificar um array, trocar valores.
+
+✅ Quando os dados são grandes e complexos (ex: structs, arrays).
+
+Evita cópias desnecessárias, economizando memória e processamento.
+
+✅ Quando a função deve retornar mais de um valor.
+
